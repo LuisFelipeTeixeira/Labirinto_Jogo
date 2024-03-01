@@ -3,7 +3,7 @@ import time
 import sys
 
 # Constantes
-WIDTH = 600
+WIDTH = 700
 HEIGHT = 600
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -31,7 +31,7 @@ def move_player(maze, player_row, player_col, exit_row, exit_col):
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption('Labirinto')
 
-    # Verificando se o jogador chegou à saída
+    # Verificando se o jogador chegou ï¿½ saï¿½da
     if player_row == exit_row and player_col == exit_col:
         font = pygame.font.Font(None, 72)
         win_text = font.render('Voce Venceu!', True, GREEN)
@@ -53,18 +53,33 @@ def main():
 
     # Definindo o labirinto
     maze = [
-        [0, 0, 1, 0, 0, 0, 1, 0],
-        [1, 0, 0, 0, 1, 0, 1, 0],
-        [1, 1, 1, 1, 0, 0, 0, 0],
-        [0, 0, 1, 0, 0, 1, 1, 1],
-        [1, 0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 1, 0, 0, 0, 1, 0],
+        [0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+        [1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+        [1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0],
+        [0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0],
+        [0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0],
+        [0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+        [1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+        [1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0],
+        [1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0],
+        [0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1],
+        [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0],
+        [0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0],
+        [0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1],
+        [0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
     ]
 
-    # Definindo a posição inicial do jogador e a posição da saída
+    # Definindo a posiï¿½ï¿½o inicial do jogador e a posiï¿½ï¿½o da saï¿½da
     player_row, player_col = 0, 0
     exit_row, exit_col = len(maze)-1, len(maze[0])-1
-   # Loop principal do jogo
+    
+    # Loop principal do jogo
     while True:
         # Tratando eventos da janela
         for event in pygame.event.get():
@@ -83,6 +98,8 @@ def main():
 
         # Atualizando a tela
         pygame.display.update()
+
+        time.sleep(0.1)
 
         # Verificando se o jogo deve ser encerrado
         if event.type == pygame.QUIT:
